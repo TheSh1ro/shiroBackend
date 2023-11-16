@@ -1,15 +1,17 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.conf import settings
 from .elo import Elo
 from .modalidade import Modalidade
 from .fila import Fila
 from .status import Status
-from django.contrib.auth.models import User
+
+# from django.contrib.auth.models import User
 from datetime import datetime
 
 
 class Servico(models.Model):
-    user = models.ForeignKey(User, on_delete=models.PROTECT, null=False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, null=False)
     purchase_date = models.DateField(default=datetime.now, null=True)
     purchase_time = models.TimeField(default=datetime.now, null=True)
     deadline = models.DateField(null=False)
