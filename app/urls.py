@@ -17,7 +17,7 @@ router.register(r"fila", FilaViewSet)
 router.register(r"modalidade", ModalidadeViewSet)
 router.register(r"servico", ServicoViewSet)
 router.register(r"elo", EloViewSet)
-router.register(r"elo", StatusViewSet)
+router.register(r"status", StatusViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
