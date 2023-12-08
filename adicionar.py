@@ -38,7 +38,7 @@ elos = [
     "Diamante 2",
     "Diamante 1",
     "Mestre",
-    "Grão-Mestre",
+    "Grão Mestre",
     "Desafiante",
 ]
 
