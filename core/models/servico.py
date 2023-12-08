@@ -24,7 +24,9 @@ class Servico(models.Model):
     queue = models.ForeignKey(Fila, on_delete=models.PROTECT, null=True, default=1)
     status = models.ForeignKey(Status, related_name="servicos_status", on_delete=models.PROTECT, null=True, default=1)
     current_elo = models.CharField(max_length=50, null=True)
+    current_elo_image = models.CharField(max_length=100, null=True)
     target_elo = models.CharField(max_length=50, null=True)
+    target_elo_image = models.CharField(max_length=100, null=True)
     description = models.TextField(max_length=500, null=True)
     riot_login = models.CharField(max_length=50, null=True)
     riot_password = models.CharField(max_length=50, null=True)
@@ -34,6 +36,7 @@ class Servico(models.Model):
     riot_id = models.CharField(max_length=50, null=True)
     riot_tag = models.CharField(max_length=50, null=True, default="#BR1")
     time = models.IntegerField(null=True)
+    purchase_date = models.DateField(auto_now_add=True, null=True)  # Adiciona automaticamente a data da compra
 
     def __str__(self):
         current_elo_name = self.current_elo.nome if isinstance(self.current_elo, Elo) else self.current_elo
